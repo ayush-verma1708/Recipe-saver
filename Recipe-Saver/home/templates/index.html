@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block start %}
+People's list:
+<table>
+<tr>
+    <th>Count</th>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Vote</th>
+</tr>
+{% for p in people%}
+<tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{p.name}}</td>
+    <td>{{p.age}}</td>
+    <td>
+        {% if p.age >= 18 %}
+        yes
+        {%else%}
+        no
+        {%endif%}
+    </td>
+</tr>
+{% endfor %}
+</table>
+<br>
+
+
+    <a href="/about">
+        about
+    </a>
+    <a href="/contact">
+        contact
+    </a>
+{% endblock %}
